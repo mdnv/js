@@ -1,0 +1,43 @@
+<html>
+<body>
+<p id="a1"></p>
+<p id="a2"></p>
+<p id="demo"></p>
+
+<script>
+var diva1 = document.getElementById('a1');
+var diva2 = document.getElementById('a2');
+var div = document.getElementById('demo');
+
+
+
+const a1 = "A.Hung, A.Tien, Le, Nguyen, B.Ngoc"
+const a2 = "Vu, Duong, Tran, C.Hai, D.Loan"
+
+const obj1 = a1.split(",");
+const obj2 = a2.split(",");
+
+let arr1 = []
+let arr2 = []
+let arr3 = []
+
+for (i = 0; i < obj1.length; i++) {
+  obj1[i].includes(".") ? arr2.push(obj1[i]) : arr1.push(obj1[i])
+}
+
+for (i = 0; i < obj2.length; i++) {
+  obj2[i].includes(".") ? arr2.push(obj2[i]) : arr1.push(obj2[i])
+}
+
+for (i = 0; i < obj1.length; i++) {
+  arr3.push(arr1[i]+' '+arr2[i])
+}
+
+div.innerHTML += JSON.stringify(arr3)
+
+</script>
+
+
+
+</body>
+</html>
