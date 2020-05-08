@@ -1,0 +1,43 @@
+<html>
+<body>
+<p id="getBOP"></p>
+<p id="getEOP"></p>
+<p id="setDate"></p>
+<script>
+  var div1 = document.getElementById('getBOP');
+  var div2 = document.getElementById('getEOP');
+  var div3 = document.getElementById('setDate');
+
+  // getBOP(1,2016) -> 01/01/2016
+
+  getBOP = (m,y) => {
+    firstDay = new Date(y, m-1, 1)
+    date = ("0" + (firstDay.getDate())).slice(-2)
+    month = ("0" + (firstDay.getMonth() + 1)).slice(-2)
+    return `${date}/${month}/${y}`
+  }
+
+  // getEOP(1,2016) -> 31/01/2016
+
+  getEOP = (m,y) => {
+    lastDay = new Date(y, m, 0)
+    date = ("0" + (lastDay.getDate())).slice(-2)
+    month = ("0" + (lastDay.getMonth() + 1)).slice(-2)
+    return `${date}/${month}/${y}`
+  }
+
+  // setDate(day, i, mm)
+
+  setDate = (day, i, mm) => {
+    return `?`
+  }
+
+  div1.innerHTML += getBOP(1,2016)
+  div2.innerHTML += getEOP(1,2016)
+  div3.innerHTML += setDate(1,1,1)
+</script>
+
+
+
+</body>
+</html>
