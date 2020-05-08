@@ -1,0 +1,118 @@
+<html>
+<body>
+<p>Below is Monday? And next Monday</p>
+<input type="number" id="start" name="trip-start" value="2020">
+<button type="submit" onclick="myFunction(event)">Click Me</button>
+<p id="demo"></p>
+<script>
+const myFunction = (event) => {
+  var div = document.getElementById('demo')
+  div.innerHTML = ""
+  year = document.querySelector('[name="trip-start"]').value
+
+  let can = ""
+  let xcan = year % 10
+  switch (xcan) {
+    case 0:
+        can = "CANH";
+        break;
+    case 1:
+        can = "TÂN";
+        break;
+    case 2:
+        can = "NHÂM";
+        break;
+    case 3:
+        can = "QUÝ";
+        break;
+    case 4:
+        can = "GIÁP";
+        break;
+    case 5:
+        can = "ẤT";
+        break;
+    case 6:
+        can = "BÍNH";
+        break;
+    case 7:
+        can = "ĐINH";
+        break;
+    case 8:
+        can = "MẬU";
+        break;
+    case 9:
+        can = "KỶ";
+        break;
+  }
+
+  let chi = ""
+  let xchi = year % 12
+  switch(xchi){
+    case 0:
+        chi="THÂN";
+        break;
+    case 1:
+        chi="DẬU";
+        break;
+    case 2:
+        chi="TUẤT";
+        break;
+    case 3:
+        chi="HỢI";
+        break;
+    case 4:
+        chi="TÝ";
+        break;
+    case 5:
+        chi="SỬU";
+        break;
+    case 6:
+        chi="DẦN";
+        break;
+    case 7:
+        chi="MẸO";
+        break;
+    case 8:
+        chi="THÌN";
+        break;
+    case 9:
+        chi="TỴ";
+        break;
+    case 10:
+        chi="NGỌ";
+        break;
+    case 11:
+        chi="MÙI";
+        break;
+  }
+
+  let menh = ""
+  xmenh = (xcan + xchi) % 5
+  switch(xmenh){
+    case 1:
+        menh="Kim";
+        break;
+    case 2:
+        menh="Thủy";
+        break;
+    case 3:
+        menh="Hỏa";
+        break;
+    case 4:
+        menh="Thổ";
+        break;
+    case 5:
+        menh="Mộc";
+        break;
+  }
+
+  // leap year and non leap year
+
+  div.innerHTML += `${can} ${chi}, ${menh}, ${year % 4 == 0 ? 'Nhuận' : 'Ko Nhuận'}`
+}
+</script>
+
+
+
+</body>
+</html>
