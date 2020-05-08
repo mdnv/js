@@ -1,0 +1,108 @@
+<html>
+<body>
+<p id="a1"></p>
+<p id="a2"></p>
+<p id="getSame"></p>
+<p id="max1"></p>
+<p id="max2"></p>
+
+<script>
+var diva1 = document.getElementById('a1');
+var diva2 = document.getElementById('a2');
+var div1 = document.getElementById('getSame');
+var div2 = document.getElementById('max1');
+var div3 = document.getElementById('max2');
+
+const a1 = "abchdkxnfbghhjmm"
+const a2 = "juyygfsefcggsslo"
+diva1.innerHTML += 'a1= '+a1
+diva2.innerHTML += 'a2= '+a2
+let arr = []
+getSame = (str1, str2) => {
+  let count = 0;
+  const obj = str2.split("");
+  for(str of str1){
+
+    let idx = obj.findIndex(s => s === str);
+    if(idx >= 0){
+      arr.push(obj[idx]);
+      count++;
+      obj.splice(idx, 1);
+    }
+  }
+  return arr;
+}
+let arr2 = []
+getSameCount = (str1, str2) => {
+  let count = 0;
+  const obj = str2.split("");
+  for(str of str1){
+
+    let idx = obj.findIndex(s => s === str);
+    if(idx >= 0){
+      arr2.push(obj[idx]);
+      count++;
+      obj.splice(idx, 1);
+    }
+  }
+  return count;
+}
+
+div1.innerHTML += 'two strings contain '+getSameCount(a1,a2)+' same characters '+JSON.stringify(getSame(a1,a2))
+
+
+function char_count(str, letter)
+{
+ var letter_Count = 0;
+ for (var position = 0; position < str.length; position++)
+ {
+    if (str.charAt(position) == letter)
+      {
+      letter_Count += 1;
+      }
+  }
+  return letter_Count;
+}
+
+
+let arr3 = []
+for (i = 0; i < arr.length; i++) {
+  arr3.push(char_count(a1, arr[i])+char_count(a2, arr[i]))
+}
+
+// div3.innerHTML += JSON.stringify(arr3)
+
+let imax = arr3.indexOf(Math.max(...arr3));
+
+console.log(arr[imax]);
+
+
+div2.innerHTML += 'second most appears characeter in two strings '+arr[imax]+' '+arr3[imax]+' time'
+
+
+let secondMax = (input) =>{
+
+ let max = Math.max.apply(null,input)
+
+input.splice(input.indexOf(max),1)
+
+max=Math.max.apply(null,input);
+
+return max;
+
+}
+
+let imax2 = arr3.indexOf(secondMax(arr3));
+console.log(arr[imax2]);
+
+div3.innerHTML += 'second most appears characeter in two strings '+arr[imax2]+' '+arr3[imax2]+' time'
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
